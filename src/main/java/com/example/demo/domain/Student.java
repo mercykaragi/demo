@@ -1,19 +1,21 @@
 package com.example.demo.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.sql.Update;
 
-@Entity(name = "students")
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name = "students")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @NotNull(groups = Update.class)
     private Long id;
     private String firstName;
     private String lastName;
 
-    public Student() {
+    protected Student() {
     }
 
     public Student(String firstName, String lastName) {
@@ -29,19 +31,21 @@ public class Student {
         this.id = id;
     }
 
-    public String getFirst_name() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setFirst_name(String first_name) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public String getLast_name() {
+    public String getLastName() {
         return lastName;
     }
 
-    public void setLast_name(String last_name) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    public interface Update{}
 }
