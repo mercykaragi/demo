@@ -2,11 +2,13 @@ package com.example.demo.service;
 
 import com.example.demo.domain.Student;
 import com.example.demo.repository.StudentRepository;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+//@Autowired -to be used instead of using a constructor the implement and final method
 public class StudentServiceImpl implements StudentService {
 
     private final StudentRepository studentRepository;
