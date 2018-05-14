@@ -1,0 +1,10 @@
+spring:
+ application:
+   name: demo1
+ server:
+   port: 8080
+
+logging:
+  level:
+   com.example.demo1:
+    feign: debug
